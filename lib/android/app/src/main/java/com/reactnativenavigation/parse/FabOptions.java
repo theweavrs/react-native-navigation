@@ -67,7 +67,6 @@ public class FabOptions {
     public Text params = new NullText();
     public Colour menuBackgroundColor = new NullColor();
     public Colour textColor = new NullColor();
-    public Colour backgroundColor = new NullColor();
  public Number fontSize = new NullNumber();
 
     void mergeWith(final FabOptions other) {
