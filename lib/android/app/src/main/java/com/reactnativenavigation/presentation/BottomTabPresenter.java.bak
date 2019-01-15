@@ -64,10 +64,6 @@ public class BottomTabPresenter {
         int index = bottomTabFinder.findByComponent(child);
         if (index >= 0) {
             BottomTabOptions bto = options.bottomTabOptions;
-if (bto.visible.isTrueOrUndefined())
-                bottomTabs.setVisible(index, true);
-            else if (bto.visible.isFalse())
-                bottomTabs.setVisible(index, false);
             if (bto.badge.hasValue()) bottomTabs.setBadge(index, bto.badge.get());
             if (bto.badgeColor.hasValue()) bottomTabs.setBadgeColor(bto.badgeColor.get());
             if (bto.fontFamily != null) bottomTabs.setTitleTypeface(index, bto.fontFamily);

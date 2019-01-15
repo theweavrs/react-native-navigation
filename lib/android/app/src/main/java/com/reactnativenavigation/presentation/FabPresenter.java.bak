@@ -1,5 +1,6 @@
 package com.reactnativenavigation.presentation;
 
+
 import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.View;
@@ -17,9 +18,8 @@ import static android.widget.RelativeLayout.ALIGN_PARENT_BOTTOM;
 import static android.widget.RelativeLayout.ALIGN_PARENT_LEFT;
 import static android.widget.RelativeLayout.ALIGN_PARENT_RIGHT;
 import static android.widget.RelativeLayout.ALIGN_PARENT_TOP;
-import static android.widget.RelativeLayout.CENTER_IN_PARENT;
-import static com.reactnativenavigation.fab.FloatingActionButton.SIZE_MINI;
-import static com.reactnativenavigation.fab.FloatingActionButton.SIZE_NORMAL;
+import static com.github.clans.fab.FloatingActionButton.SIZE_MINI;
+import static com.github.clans.fab.FloatingActionButton.SIZE_NORMAL;
 import static com.reactnativenavigation.fab.FloatingActionButton.SIZE_BIG;
 
 public class FabPresenter {
@@ -110,25 +110,18 @@ public class FabPresenter {
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         if (viewGroup instanceof RelativeLayout) {
             RelativeLayout.LayoutParams layoutParamsRelative = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            layoutParamsRelative.bottomMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.bottom_margin);
+            layoutParamsRelative.bottomMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             layoutParamsRelative.rightMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             layoutParamsRelative.leftMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             layoutParamsRelative.topMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             if (options.alignHorizontally.hasValue()) {
                 if ("right".equals(options.alignHorizontally.get())) {
                     layoutParamsRelative.removeRule(ALIGN_PARENT_LEFT);
-                    layoutParamsRelative.removeRule(CENTER_IN_PARENT);
                     layoutParamsRelative.addRule(ALIGN_PARENT_RIGHT);
                 }
                 if ("left".equals(options.alignHorizontally.get())) {
                     layoutParamsRelative.removeRule(ALIGN_PARENT_RIGHT);
-                    layoutParamsRelative.removeRule(CENTER_IN_PARENT);
                     layoutParamsRelative.addRule(ALIGN_PARENT_LEFT);
-                }
-                if ("center".equals(options.alignHorizontally.get())) {
-                    layoutParamsRelative.removeRule(ALIGN_PARENT_RIGHT);
-                    layoutParamsRelative.removeRule(ALIGN_PARENT_LEFT);
-                    layoutParamsRelative.addRule(CENTER_IN_PARENT);
                 }
             } else {
                 layoutParamsRelative.addRule(ALIGN_PARENT_RIGHT);
@@ -148,28 +141,19 @@ public class FabPresenter {
             layoutParams = layoutParamsRelative;
         }
         if (viewGroup instanceof FrameLayout) {
-            FrameLayout.LayoutParams layoutParamsFrame = new FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            layoutParamsFrame.bottomMargin = (int) viewGroup.getContext().getResources()
-                    .getDimension(R.dimen.bottom_margin);
+            FrameLayout.LayoutParams layoutParamsFrame = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            layoutParamsFrame.bottomMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             layoutParamsFrame.rightMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             layoutParamsFrame.leftMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             layoutParamsFrame.topMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             if (options.alignHorizontally.hasValue()) {
                 if ("right".equals(options.alignHorizontally.get())) {
                     removeGravityParam(layoutParamsFrame, Gravity.LEFT);
-                    removeGravityParam(layoutParamsFrame, Gravity.CENTER);
                     setGravityParam(layoutParamsFrame, Gravity.RIGHT);
                 }
                 if ("left".equals(options.alignHorizontally.get())) {
                     removeGravityParam(layoutParamsFrame, Gravity.RIGHT);
-                    removeGravityParam(layoutParamsFrame, Gravity.CENTER);
                     setGravityParam(layoutParamsFrame, Gravity.LEFT);
-                }
-                if ("center".equals(options.alignHorizontally.get())) {
-                    removeGravityParam(layoutParamsFrame, Gravity.RIGHT);
-                    removeGravityParam(layoutParamsFrame, Gravity.LEFT);
-                    setGravityParam(layoutParamsFrame, Gravity.CENTER);
                 }
             } else {
                 setGravityParam(layoutParamsFrame, Gravity.RIGHT);
@@ -196,32 +180,20 @@ public class FabPresenter {
         if (viewGroup instanceof RelativeLayout) {
             RelativeLayout.LayoutParams layoutParamsRelative = (RelativeLayout.LayoutParams) fab.getLayoutParams();
             if (layoutParamsRelative == null) {
-                layoutParamsRelative = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT);
-                layoutParamsRelative.bottomMargin = (int) viewGroup.getContext().getResources()
-                        .getDimension(R.dimen.bottom_margin);
-                layoutParamsRelative.rightMargin = (int) viewGroup.getContext().getResources()
-                        .getDimension(R.dimen.margin);
-                layoutParamsRelative.leftMargin = (int) viewGroup.getContext().getResources()
-                        .getDimension(R.dimen.margin);
-                layoutParamsRelative.topMargin = (int) viewGroup.getContext().getResources()
-                        .getDimension(R.dimen.margin);
+                layoutParamsRelative = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                layoutParamsRelative.bottomMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
+                layoutParamsRelative.rightMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
+                layoutParamsRelative.leftMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
+                layoutParamsRelative.topMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             }
             if (options.alignHorizontally.hasValue()) {
                 if ("right".equals(options.alignHorizontally.get())) {
                     layoutParamsRelative.removeRule(ALIGN_PARENT_LEFT);
-                    layoutParamsRelative.removeRule(CENTER_IN_PARENT);
                     layoutParamsRelative.addRule(ALIGN_PARENT_RIGHT);
                 }
                 if ("left".equals(options.alignHorizontally.get())) {
                     layoutParamsRelative.removeRule(ALIGN_PARENT_RIGHT);
-                    layoutParamsRelative.removeRule(CENTER_IN_PARENT);
                     layoutParamsRelative.addRule(ALIGN_PARENT_LEFT);
-                }
-                if ("center".equals(options.alignHorizontally.get())) {
-                    layoutParamsRelative.removeRule(ALIGN_PARENT_RIGHT);
-                    layoutParamsRelative.removeRule(ALIGN_PARENT_LEFT);
-                    layoutParamsRelative.addRule(CENTER_IN_PARENT);
                 }
             }
             if (options.alignVertically.hasValue()) {
@@ -239,30 +211,20 @@ public class FabPresenter {
         if (viewGroup instanceof FrameLayout) {
             FrameLayout.LayoutParams layoutParamsFrame = (FrameLayout.LayoutParams) fab.getLayoutParams();
             if (layoutParamsFrame == null) {
-                layoutParamsFrame = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT);
-                layoutParamsFrame.bottomMargin = (int) viewGroup.getContext().getResources()
-                        .getDimension(R.dimen.bottom_margin);
-                layoutParamsFrame.rightMargin = (int) viewGroup.getContext().getResources()
-                        .getDimension(R.dimen.margin);
+                layoutParamsFrame = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                layoutParamsFrame.bottomMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
+                layoutParamsFrame.rightMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
                 layoutParamsFrame.leftMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
                 layoutParamsFrame.topMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             }
             if (options.alignHorizontally.hasValue()) {
                 if ("right".equals(options.alignHorizontally.get())) {
                     removeGravityParam(layoutParamsFrame, Gravity.LEFT);
-                    removeGravityParam(layoutParamsFrame, Gravity.CENTER);
                     setGravityParam(layoutParamsFrame, Gravity.RIGHT);
                 }
                 if ("left".equals(options.alignHorizontally.get())) {
                     removeGravityParam(layoutParamsFrame, Gravity.RIGHT);
-                    removeGravityParam(layoutParamsFrame, Gravity.CENTER);
                     setGravityParam(layoutParamsFrame, Gravity.LEFT);
-                }
-                if ("center".equals(options.alignHorizontally.get())) {
-                    removeGravityParam(layoutParamsFrame, Gravity.RIGHT);
-                    removeGravityParam(layoutParamsFrame, Gravity.LEFT);
-                    setGravityParam(layoutParamsFrame, Gravity.CENTER);
                 }
             }
             if (options.alignVertically.hasValue()) {
@@ -287,9 +249,6 @@ public class FabPresenter {
         if (options.visible.isFalse()) {
             fab.hide(true);
         }
-        if (options.text.hasValue() && options.fontSize.hasValue() && options.textColor.hasValue()) {
-            fab.applyIcon(null, options.text.get(), options.fontSize.get(), options.textColor.get());
-        }
         if (options.backgroundColor.hasValue()) {
             fab.setColorNormal(options.backgroundColor.get());
         }
@@ -300,11 +259,10 @@ public class FabPresenter {
             fab.setColorRipple(options.rippleColor.get());
         }
         if (options.icon.hasValue()) {
-            fab.applyIcon(options.icon.get(), null, 0, 0);
+            fab.applyIcon(options.icon.get(), options.iconColor);
         }
         if (options.size.hasValue()) {
-            fab.setButtonSize("mini".equals(options.size.get()) ? SIZE_MINI
-                    : "big".equals(options.size.get()) ? SIZE_BIG : SIZE_NORMAL);
+            fab.setButtonSize("mini".equals(options.size.get()) ? SIZE_MINI : SIZE_NORMAL);
         }
         if (options.hideOnScroll.isTrue()) {
             fab.enableCollapse(component.getScrollEventListener());
@@ -330,15 +288,11 @@ public class FabPresenter {
         if (options.rippleColor.hasValue()) {
             fab.setColorRipple(options.rippleColor.get());
         }
-        if (options.text.hasValue() && options.fontSize.hasValue() && options.textColor.hasValue()) {
-            fab.applyIcon(null, options.text.get(), options.fontSize.get(), options.textColor.get());
-        }
         if (options.icon.hasValue()) {
-            fab.applyIcon(options.icon.get(), null, 0, 0);
+            fab.applyIcon(options.icon.get(), options.iconColor);
         }
         if (options.size.hasValue()) {
-            fab.setButtonSize("mini".equals(options.size.get()) ? SIZE_MINI
-                    : "big".equals(options.size.get()) ? SIZE_BIG : SIZE_NORMAL);
+            fab.setButtonSize("mini".equals(options.size.get()) ? SIZE_MINI : SIZE_NORMAL);
         }
         if (options.hideOnScroll.isTrue()) {
             fab.enableCollapse(component.getScrollEventListener());
@@ -365,10 +319,6 @@ public class FabPresenter {
         if (options.rippleColor.hasValue()) {
             fabMenu.setMenuButtonColorRipple(options.rippleColor.get());
         }
-        if (options.size.hasValue()) {
-            fabMenu.setMenuButtonSize("mini".equals(options.size.get()) ? SIZE_MINI
-                    : "big".equals(options.size.get()) ? SIZE_BIG : SIZE_NORMAL);
-        }
         for (Fab fabStored : fabMenu.getActions()) {
             fabMenu.removeMenuButton(fabStored);
         }
@@ -376,8 +326,7 @@ public class FabPresenter {
         for (FabOptions fabOption : options.actionsArray) {
             Fab fab = new Fab(viewGroup.getContext(), fabOption.id.get());
             applyFabOptions(fab, fabOption);
-            fab.setOnClickListener(v -> component.sendOnNavigationButtonPressed(
-                    fabOption.params.hasValue() ? fabOption.params.get() : fabOption.id.get()));
+            fab.setOnClickListener(v -> component.sendOnNavigationButtonPressed(options.id.get()));
 
             fabMenu.getActions().add(fab);
             fabMenu.addMenuButton(fab);
@@ -387,9 +336,6 @@ public class FabPresenter {
         }
         if (options.hideOnScroll.isFalseOrUndefined()) {
             fabMenu.disableCollapse();
-        }
-        if (options.menuBackgroundColor.hasValue()) {
-            fabMenu.setBackgroundDimColor(options.menuBackgroundColor.get());
         }
     }
 
@@ -410,10 +356,6 @@ public class FabPresenter {
         if (options.rippleColor.hasValue()) {
             fabMenu.setMenuButtonColorRipple(options.rippleColor.get());
         }
-        if (options.size.hasValue()) {
-            fabMenu.setMenuButtonSize("mini".equals(options.size.get()) ? SIZE_MINI
-                    : "big".equals(options.size.get()) ? SIZE_BIG : SIZE_NORMAL);
-        }
         if (options.actionsArray.size() > 0) {
             for (Fab fabStored : fabMenu.getActions()) {
                 fabMenu.removeMenuButton(fabStored);
@@ -422,8 +364,8 @@ public class FabPresenter {
             for (FabOptions fabOption : options.actionsArray) {
                 Fab fab = new Fab(viewGroup.getContext(), fabOption.id.get());
                 applyFabOptions(fab, fabOption);
-                fab.setOnClickListener(v -> component.sendOnNavigationButtonPressed(
-                        fabOption.params.hasValue() ? fabOption.params.get() : fabOption.id.get()));
+                fab.setOnClickListener(v -> component.sendOnNavigationButtonPressed(options.id.get()));
+
                 fabMenu.getActions().add(fab);
                 fabMenu.addMenuButton(fab);
             }

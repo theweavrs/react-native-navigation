@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.ColorInt;
 
-import com.reactnativenavigation.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionButton;
 import com.reactnativenavigation.anim.FabAnimator;
 import com.reactnativenavigation.anim.FabCollapseBehaviour;
 import com.reactnativenavigation.interfaces.ScrollEventListener;

@@ -128,20 +128,8 @@ public class FabOptions {
         if (!id.hasValue()) {
             id = defaultOptions.id;
         }
-        if (!text.hasValue()) {
-            text = defaultOptions.text;
-        }
-        if (!params.hasValue()) {
-            params = defaultOptions.params;
-        }
         if (!backgroundColor.hasValue()) {
             backgroundColor = defaultOptions.backgroundColor;
-        }
-        if (!menuBackgroundColor.hasValue()) {
-            menuBackgroundColor = defaultOptions.menuBackgroundColor;
-        }
-        if (!textColor.hasValue()) {
-            textColor = defaultOptions.textColor;
         }
         if (!clickColor.hasValue()) {
             clickColor = defaultOptions.clickColor;

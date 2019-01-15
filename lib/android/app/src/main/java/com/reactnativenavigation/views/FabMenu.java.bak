@@ -27,12 +27,12 @@ public class FabMenu extends FloatingActionMenu implements FabAnimator {
 
     @Override
     public void show() {
-        close(true);
+        showMenu(true);
     }
 
     @Override
     public void hide() {
-        close(true);
+        hideMenu(true);
     }
 
     public void enableCollapse(ScrollEventListener scrollEventListener) {

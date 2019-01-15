@@ -79,16 +79,6 @@ public class BottomTabs extends AHBottomNavigation {
         }
     }
 
-    public void setVisible(int index, boolean value) {
-        AHBottomNavigationItem item = getItem(index);
-        if (item != null) {
-            if (!value) {
-                super.disableItemAtPosition(index);
-                super.setIconDisableColor(index, Color.parseColor("#00000000"));
-            } else
-                super.enableItemAtPosition(index);
-        }
-    }
     public void setIcon(int index, Drawable icon) {
         AHBottomNavigationItem item = getItem(index);
         if (!item.getDrawable(getContext()).equals(icon)) {

@@ -90,7 +90,7 @@ dependencies {
     implementation 'com.github.wix-playground:ahbottomnavigation:2.4.8'
     implementation 'com.github.wix-playground:reflow-animator:1.0.4'
     implementation 'com.github.clans:fab:1.6.4'
-    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'
 
