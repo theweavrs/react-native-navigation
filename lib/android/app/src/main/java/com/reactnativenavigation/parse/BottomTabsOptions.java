@@ -35,14 +35,18 @@ public class BottomTabsOptions {
         options.testId = TextParser.parse(json, "testID");
         options.titleDisplayMode = TitleDisplayMode.fromString(json.optString("titleDisplayMode"));
         options.tabsAttachMode = TabsAttachMode.fromString(json.optString("tabsAttachMode"));
+		options.isDarkMode = BoolParser.parse(json,"isDarkMode");
+        options.defaultBackgroundColor = ColorParser.parse(json, "defaultBackgroundColor");
 
 		return options;
 	}
 
     public Colour backgroundColor = new NullColor();
+    public Colour defaultBackgroundColor = new NullColor();
 	public Bool visible = new NullBool();
     public Bool drawBehind = new NullBool();
 	public Bool animate = new NullBool();
+	public Bool isDarkMode = new NullBool();
 	public Number currentTabIndex = new NullNumber();
 	public Fraction elevation = new NullFraction();
 	public Text currentTabId = new NullText();
@@ -56,6 +60,8 @@ public class BottomTabsOptions {
 		if (other.visible.hasValue()) visible = other.visible;
         if (other.drawBehind.hasValue()) drawBehind = other.drawBehind;
 		if (other.animate.hasValue()) animate = other.animate;
+		if (other.isDarkMode.hasValue()) isDarkMode = other.isDarkMode;
+		if (other.defaultBackgroundColor.hasValue()) defaultBackgroundColor = other.defaultBackgroundColor;
         if (other.elevation.hasValue()) elevation = other.elevation;
         if (other.backgroundColor.hasValue()) backgroundColor = other.backgroundColor;
         if (other.testId.hasValue()) testId = other.testId;
@@ -69,8 +75,10 @@ public class BottomTabsOptions {
         if (!visible.hasValue()) visible = defaultOptions.visible;
         if (!drawBehind.hasValue()) drawBehind = defaultOptions.drawBehind;
         if (!animate.hasValue()) animate = defaultOptions.animate;
+        if (!isDarkMode.hasValue()) isDarkMode = defaultOptions.isDarkMode;
         if (!elevation.hasValue()) elevation = defaultOptions.elevation;
         if (!backgroundColor.hasValue()) backgroundColor = defaultOptions.backgroundColor;
+        if (!defaultBackgroundColor.hasValue()) defaultBackgroundColor = defaultOptions.defaultBackgroundColor;
         if (!titleDisplayMode.hasValue()) titleDisplayMode = defaultOptions.titleDisplayMode;
         if (!tabsAttachMode.hasValue()) tabsAttachMode = defaultOptions.tabsAttachMode;
     }

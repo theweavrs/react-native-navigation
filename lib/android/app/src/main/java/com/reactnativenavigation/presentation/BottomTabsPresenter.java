@@ -39,6 +39,7 @@ public class BottomTabsPresenter {
 
     public void bindView(BottomTabs bottomTabs, TabSelector tabSelector) {
         this.bottomTabs = bottomTabs;
+       // bottomTabs.setDefaultBackgroundColor(Color.BLACK);
         this.tabSelector = tabSelector;
         animator = new BottomTabsAnimator(bottomTabs);
     }
@@ -73,6 +74,9 @@ public class BottomTabsPresenter {
     }
 
     private void mergeBottomTabsOptions(BottomTabsOptions options, AnimationsOptions animations) {
+        if(options.isDarkMode.hasValue()) {
+            bottomTabs.setDefaultBackgroundColor(options.isDarkMode.get() ? options.defaultBackgroundColor.get() : Color.WHITE);
+        }
         if (options.titleDisplayMode.hasValue()) {
             bottomTabs.setTitleState(options.titleDisplayMode.toState());
         }
@@ -138,6 +142,9 @@ public class BottomTabsPresenter {
 
     private void applyBottomTabsOptions(BottomTabsOptions options, AnimationsOptions animationsOptions) {
         bottomTabs.setTitleState(options.titleDisplayMode.get(TitleState.SHOW_WHEN_ACTIVE));
+        if(options.isDarkMode.hasValue()) {
+            bottomTabs.setDefaultBackgroundColor(options.isDarkMode.get() ? options.defaultBackgroundColor.get() : Color.WHITE);
+        }
         bottomTabs.setBackgroundColor(options.backgroundColor.get(Color.WHITE));
         if (options.currentTabIndex.hasValue()) {
             int tabIndex = options.currentTabIndex.get();
