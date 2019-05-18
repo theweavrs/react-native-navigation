@@ -19,6 +19,7 @@ function registerScreens() {
   Navigation.registerComponent(Screens.Stack, () => require('./StackScreen'));
   Navigation.registerComponent(Screens.Pushed, () => require('./PushedScreen'));
   Navigation.registerComponent(Screens.Modal, () => require('./ModalScreen'))
+  Navigation.registerComponent(Screens.SetRoot, () => require('./SetRootScreen'))
   Navigation.registerComponent(Screens.Navigation, () => require('./NavigationScreen'));
   Navigation.registerComponent(Screens.FirstBottomTabsScreen, () => require('./FirstBottomTabScreen'));
   Navigation.registerComponent(Screens.SecondBottomTabsScreen, () => require('./SecondBottomTabScreen'));
@@ -38,6 +39,7 @@ function registerScreens() {
   Navigation.registerComponent(Screens.Orientation, () => require('./OrientationScreen'));
   Navigation.registerComponent(Screens.OrientationDetect, () => require('./OrientationDetectScreen'));
   Navigation.registerComponent(Screens.Search, () => require('./SearchScreen'));
+  Navigation.registerComponent(Screens.ExternalComponent, () => require('./ExternalComponentScreen'));
 
   Navigation.registerComponent(`navigation.playground.CustomTransitionDestination`, () => CustomTransitionDestination);
   Navigation.registerComponent(`navigation.playground.CustomTransitionOrigin`, () => CustomTransitionOrigin);

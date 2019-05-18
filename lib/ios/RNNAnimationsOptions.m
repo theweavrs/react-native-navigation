@@ -1,6 +1,6 @@
-#import "RNNTransitionsOptions.h"
+#import "RNNAnimationsOptions.h"
 
-@implementation RNNTransitionsOptions
+@implementation RNNAnimationsOptions
 
 - (instancetype)initWithDict:(NSDictionary *)dict {
 	self = [super init];
