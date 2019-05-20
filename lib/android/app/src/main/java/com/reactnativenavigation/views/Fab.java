@@ -40,9 +40,8 @@ public class Fab extends FloatingActionButton implements FabAnimator {
     public void applyIcon(String icon, String text, int fontSize, @ColorInt int textColor) {
         if (text != null && fontSize != 0 && textColor != 0 && icon == null) {
             Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto.ttf");
-            int scaledSize = getContext().getResources().getDimensionPixelSize(fontSize);
             TextDrawable drawable = TextDrawable.builder().beginConfig().textColor(textColor).useFont(font)
-                    .fontSize(scaledSize).endConfig().buildRect(text, Color.TRANSPARENT);
+                    .fontSize(fontSize).endConfig().buildRect(text, Color.TRANSPARENT);
             setImageDrawable(drawable);
         } else
             new ImageLoader().loadIcons(getContext(), Collections.singletonList(icon),
