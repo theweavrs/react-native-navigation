@@ -47,9 +47,9 @@ public class FloatingActionButton extends ImageButton {
     int mFabSize;
     boolean mShowShadow;
     int mShadowColor;
-    int mShadowRadius = Util.dpToPx(getContext(), 4f);
-    int mShadowXOffset = Util.dpToPx(getContext(), 1f);
-    int mShadowYOffset = Util.dpToPx(getContext(), 3f);
+    int mShadowRadius = Util.dpToPx(getContext(), 3f);
+    int mShadowXOffset = Util.dpToPx(getContext(), 0f);
+    int mShadowYOffset = Util.dpToPx(getContext(), 1f);
 
     private static final Xfermode PORTER_DUFF_CLEAR = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
     private static final long PAUSE_GROWING_TIME = 200;
