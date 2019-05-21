@@ -48,6 +48,13 @@ public class FabOptions {
         options.fontSize = NumberParser.parse(json, "fontSize");
         options.menuBackgroundColor = ColorParser.parse(json, "menuBackgroundColor");
         options.params = TextParser.parse(json, "params");
+
+        //Margin
+        options.bottomMargin = NumberParser.parse(json, "bottomMargin");
+        options.rightMargin = NumberParser.parse(json, "rightMargin");
+        options.leftMargin = NumberParser.parse(json, "leftMargin");
+        options.topMargin = NumberParser.parse(json, "topMargin");
+
         return options;
     }
 
@@ -68,6 +75,10 @@ public class FabOptions {
     public Colour menuBackgroundColor = new NullColor();
     public Colour textColor = new NullColor();
  public Number fontSize = new NullNumber();
+ public Number topMargin = new NullNumber();
+ public Number bottomMargin = new NullNumber();
+ public Number leftMargin = new NullNumber();
+ public Number rightMargin = new NullNumber();
 
     void mergeWith(final FabOptions other) {
         if (other.id.hasValue()) {
@@ -87,6 +98,18 @@ public class FabOptions {
         }
         if (other.fontSize.hasValue()) {
             fontSize = other.fontSize;
+        }
+        if (other.bottomMargin.hasValue()) {
+            bottomMargin = other.bottomMargin;
+        }
+        if (other.topMargin.hasValue()) {
+            topMargin = other.topMargin;
+        }
+        if (other.rightMargin.hasValue()) {
+            rightMargin = other.rightMargin;
+        }
+        if (other.leftMargin.hasValue()) {
+            leftMargin = other.leftMargin;
         }
         if (other.textColor.hasValue()) {
             textColor = other.textColor;
@@ -171,6 +194,22 @@ public class FabOptions {
         }
         if (!size.hasValue()) {
             size = defaultOptions.size;
+        }
+
+        if (!fontSize.hasValue()) {
+            fontSize = defaultOptions.fontSize;
+        }
+        if (!bottomMargin.hasValue()) {
+            bottomMargin = defaultOptions.bottomMargin;
+        }
+        if (!topMargin.hasValue()) {
+            topMargin = defaultOptions.topMargin;
+        }
+        if (!rightMargin.hasValue()) {
+            rightMargin = defaultOptions.rightMargin;
+        }
+        if (!leftMargin.hasValue()) {
+            leftMargin = defaultOptions.leftMargin;
         }
     }
 

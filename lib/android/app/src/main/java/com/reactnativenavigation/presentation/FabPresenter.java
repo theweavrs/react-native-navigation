@@ -105,7 +105,6 @@ public class FabPresenter {
             fab = null;
         }
     }
-
     private void setParams(View fab, FabOptions options) {
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         if (viewGroup instanceof RelativeLayout) {
@@ -114,6 +113,21 @@ public class FabPresenter {
             layoutParamsRelative.rightMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             layoutParamsRelative.leftMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             layoutParamsRelative.topMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
+            
+            //custom margin
+            if(options.topMargin.hasValue()){
+                layoutParamsRelative.topMargin =options.topMargin.get();
+            }
+            if(options.bottomMargin.hasValue()){
+                layoutParamsRelative.bottomMargin =options.bottomMargin.get();
+            }
+            if(options.rightMargin.hasValue()){                
+                layoutParamsRelative.rightMargin =options.rightMargin.get();
+            }
+            if(options.leftMargin.hasValue()){
+                layoutParamsRelative.leftMargin =options.leftMargin.get();
+            }
+            
             if (options.alignHorizontally.hasValue()) {
                 if ("right".equals(options.alignHorizontally.get())) {
                     layoutParamsRelative.removeRule(ALIGN_PARENT_LEFT);
@@ -155,6 +169,21 @@ public class FabPresenter {
             layoutParamsFrame.rightMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             layoutParamsFrame.leftMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             layoutParamsFrame.topMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
+
+             //custom margin
+             if(options.topMargin.hasValue()){
+                layoutParamsFrame.topMargin =options.topMargin.get();
+            }
+            if(options.bottomMargin.hasValue()){
+                layoutParamsFrame.bottomMargin =options.bottomMargin.get();
+            }
+            if(options.rightMargin.hasValue()){                
+                layoutParamsFrame.rightMargin =options.rightMargin.get();
+            }
+            if(options.leftMargin.hasValue()){
+                layoutParamsFrame.leftMargin =options.leftMargin.get();
+            }
+
             if (options.alignHorizontally.hasValue()) {
                 if ("right".equals(options.alignHorizontally.get())) {
                     removeGravityParam(layoutParamsFrame, Gravity.LEFT);
@@ -207,6 +236,19 @@ public class FabPresenter {
                 layoutParamsRelative.topMargin = (int) viewGroup.getContext().getResources()
                         .getDimension(R.dimen.margin);
             }
+            //custom margin
+            if(options.topMargin.hasValue()){
+                layoutParamsRelative.topMargin =options.topMargin.get();
+            }
+            if(options.bottomMargin.hasValue()){
+                layoutParamsRelative.bottomMargin =options.bottomMargin.get();
+            }
+            if(options.rightMargin.hasValue()){                
+                layoutParamsRelative.rightMargin =options.rightMargin.get();
+            }
+            if(options.leftMargin.hasValue()){
+                layoutParamsRelative.leftMargin =options.leftMargin.get();
+            }
             if (options.alignHorizontally.hasValue()) {
                 if ("right".equals(options.alignHorizontally.get())) {
                     layoutParamsRelative.removeRule(ALIGN_PARENT_LEFT);
@@ -248,6 +290,19 @@ public class FabPresenter {
                 layoutParamsFrame.leftMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
                 layoutParamsFrame.topMargin = (int) viewGroup.getContext().getResources().getDimension(R.dimen.margin);
             }
+                         //custom margin
+                         if(options.topMargin.hasValue()){
+                            layoutParamsFrame.topMargin =options.topMargin.get();
+                        }
+                        if(options.bottomMargin.hasValue()){
+                            layoutParamsFrame.bottomMargin =options.bottomMargin.get();
+                        }
+                        if(options.rightMargin.hasValue()){                
+                            layoutParamsFrame.rightMargin =options.rightMargin.get();
+                        }
+                        if(options.leftMargin.hasValue()){
+                            layoutParamsFrame.leftMargin =options.leftMargin.get();
+                        }
             if (options.alignHorizontally.hasValue()) {
                 if ("right".equals(options.alignHorizontally.get())) {
                     removeGravityParam(layoutParamsFrame, Gravity.LEFT);
